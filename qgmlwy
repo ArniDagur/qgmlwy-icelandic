@@ -1,0 +1,81 @@
+// qgmlwy layout (see http://mkweb.bcgsc.ca/carpalx/)
+// modified for use by icelandic users
+// -------------------------
+// For Icelandic characters:
+// -------------------------
+// alt-gr + a = á
+// alt-gr + e = é
+// alt-gr + o = ó
+// alt-gr + h = æ
+// alt-gr + u = ú
+// alt-gr + y = ý
+// alt-gr + b = ö
+// alt-gr + t = ð
+// alt-gr + n = þ
+//
+// to use, copy to /usr/share/X11/xkb/symbols/qgmlwy (no extention) and add the following
+// then load with:
+//    setxkbmap qgmlwy
+
+default
+partial alphanumeric_keys
+xkb_symbols "qgmlwy" {
+
+    include "latin"
+    include "latin(nodeadkeys)"
+
+    name[Group1] = "QGMLWY Icelandic";
+
+    //Number row
+    key <TLDE> { [ grave, asciitilde ] };
+    key <AE01> { [ equal, plus ] };
+    key <AE02> { [ 1, exclam, interrobang ] };
+    key <AE03> { [ 2, at ] };
+    key <AE04> { [ 3, numbersign, U203B, section ] };
+    key <AE05> { [ 4, dollar, U20AC, currency] };
+    key <AE06> { [ 5, percent, U2030, U2031] };
+    key <AE07> { [ 6, asciicircum ] };
+    key <AE08> { [ 7, ampersand	] };
+    key <AE09> { [ 8, asterisk	] };
+    key <AE10> { [ 9, parenleft	] };
+    key <AE11> { [ 0, parenright ] };
+    key <AE12> { [ minus, underscore, emdash, endash ] };
+    //Upmost row
+    key <AD01> { [ q, Q ] };
+    key <AD02> { [ g, G ] };
+    key <AD03> { [ m, M, mu ] };
+    key <AD04> { [ l, L ] };
+    key <AD05> { [ w, W ] };
+    key <AD06> { [ y, Y, U00FD, U00DD] };
+    key <AD07> { [ f, F ] };
+    key <AD08> { [ u, U, U00FA, U00DA ] };
+    key <AD09> { [ b, B, U00F6, U00D6 ] };
+    key <AD10> { [ semicolon, colon ] };
+    key <AD11> { [ bracketleft, braceleft ] };
+    key <AD12> { [ bracketright, braceright ] };
+    key <BKSL> { [ backslash, bar ] };
+    //Middle row
+    key <AC01> { [ d, D ] };
+    key <AC02> { [ s, S, ssharp ] };
+    key <AC03> { [ t, T, eth, ETH ] };
+    key <AC04> { [ n, N, thorn, THORN ] };
+    key <AC05> { [ r, R ] };
+    key <AC06> { [ i, I, U00ED, U00CD ] };
+    key <AC07> { [ a, A, U00E1, U00C1 ] };
+    key <AC08> { [ e, E, U00E9, U00C9 ] };
+    key <AC09> { [ o, O, U00F3, U00D3 ] };
+    key <AC10> { [ h, H, ae, AE ] };
+    key <AC11> { [ apostrophe, quotedbl ] };
+    //Lowest row
+    key <AB01> { [ z, Z ] };
+    key <AB02> { [ x, X ] };
+    key <AB03> { [ c, C ] };
+    key <AB04> { [ v, V ] };
+    key <AB05> { [ j, J ] };
+    key <AB06> { [ k, K ] };
+    key <AB07> { [ p, P ] };
+    key <AB08> { [ comma, less ] };
+    key <AB09> { [ period, greater ] };
+    key <AB10> { [ slash, U003F ] };
+
+};
