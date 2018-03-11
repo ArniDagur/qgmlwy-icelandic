@@ -15,7 +15,7 @@
 // alt-gr + n = þ
 // -------------------------
 // Set manually with: setxkbmap qgmlwy
-// Set automatically and add to your system with: sudo python3 install_qgmlwy.py
+// Set and add to your system automatically with: sudo python3 install_qgmlwy.py
 
 default
 partial alphanumeric_keys
