@@ -1,5 +1,6 @@
-// qgmlwy layout (see http://mkweb.bcgsc.ca/carpalx/)
-// modified for use by icelandic users
+// QGMLWY layout (see http://mkweb.bcgsc.ca/carpalx/)
+// Icelandic edit by Árni Dagur:
+// https://github.com/ArniDagur/qgmlwy-icelandic
 // -------------------------
 // For Icelandic characters:
 // -------------------------
@@ -12,10 +13,7 @@
 // alt-gr + b = ö
 // alt-gr + t = ð
 // alt-gr + n = þ
-//
-// to use, copy to /usr/share/X11/xkb/symbols/qgmlwy (no extention) and add the following
-// then load with:
-//    setxkbmap qgmlwy
+// -------------------------
 
 default
 partial alphanumeric_keys
@@ -26,47 +24,55 @@ xkb_symbols "qgmlwy" {
 
     name[Group1] = "QGMLWY Icelandic";
 
-    //Number row
+    // Modifier keys:
+    include "level3(ralt_switch)"
+    key <CAPS> { // implemented here as caps lock is not a default level 5 option
+        type[Group1]="ONE_LEVEL",
+        symbols[Group1] = [ ISO_Level5_Shift ] };
+    include "level5(modifier_mapping)"
+
+    key.type[Group1] = "EIGHT_LEVEL"; // makes keys capable of using up to eight levels
+    // Number row
     key <TLDE> { [ grave, asciitilde ] };
-    key <AE01> { [ equal, plus ] };
+    key <AE01> { [ equal, plus, notequal, U2248 ] }; // ≈
     key <AE02> { [ 1, exclam, interrobang ] };
     key <AE03> { [ 2, at ] };
-    key <AE04> { [ 3, numbersign, U203B, section ] };
-    key <AE05> { [ 4, dollar, U20AC, currency] };
-    key <AE06> { [ 5, percent, U2030, U2031] };
+    key <AE04> { [ 3, numbersign, U203B, section ] }; // ※
+    key <AE05> { [ 4, dollar, EuroSign, currency] };
+    key <AE06> { [ 5, percent, U2030, U2031] }; // ‰, ‱
     key <AE07> { [ 6, asciicircum ] };
     key <AE08> { [ 7, ampersand	] };
     key <AE09> { [ 8, asterisk	] };
     key <AE10> { [ 9, parenleft	] };
     key <AE11> { [ 0, parenright ] };
     key <AE12> { [ minus, underscore, emdash, endash ] };
-    //Upmost row
+    // Upmost row
     key <AD01> { [ q, Q ] };
     key <AD02> { [ g, G ] };
     key <AD03> { [ m, M, mu ] };
     key <AD04> { [ l, L ] };
     key <AD05> { [ w, W ] };
-    key <AD06> { [ y, Y, U00FD, U00DD] };
+    key <AD06> { [ y, Y, U00FD, U00DD] }; // ý, Ý
     key <AD07> { [ f, F ] };
-    key <AD08> { [ u, U, U00FA, U00DA ] };
-    key <AD09> { [ b, B, U00F6, U00D6 ] };
+    key <AD08> { [ u, U, U00FA, U00DA ] }; // ú, Ú
+    key <AD09> { [ b, B, U00F6, U00D6 ] }; // ö, Ö
     key <AD10> { [ semicolon, colon ] };
     key <AD11> { [ bracketleft, braceleft ] };
     key <AD12> { [ bracketright, braceright ] };
     key <BKSL> { [ backslash, bar ] };
-    //Middle row
+    // Middle row
     key <AC01> { [ d, D ] };
     key <AC02> { [ s, S, ssharp ] };
     key <AC03> { [ t, T, eth, ETH ] };
     key <AC04> { [ n, N, thorn, THORN ] };
     key <AC05> { [ r, R ] };
-    key <AC06> { [ i, I, U00ED, U00CD ] };
-    key <AC07> { [ a, A, U00E1, U00C1 ] };
-    key <AC08> { [ e, E, U00E9, U00C9 ] };
-    key <AC09> { [ o, O, U00F3, U00D3 ] };
+    key <AC06> { [ i, I, U00ED, U00CD ] }; // í, Í
+    key <AC07> { [ a, A, U00E1, U00C1 ] }; // á, Á
+    key <AC08> { [ e, E, U00E9, U00C9 ] }; // é, É
+    key <AC09> { [ o, O, U00F3, U00D3 ] }; // ó, Ó
     key <AC10> { [ h, H, ae, AE ] };
     key <AC11> { [ apostrophe, quotedbl ] };
-    //Lowest row
+    // Lowest row
     key <AB01> { [ z, Z ] };
     key <AB02> { [ x, X ] };
     key <AB03> { [ c, C ] };
@@ -74,8 +80,7 @@ xkb_symbols "qgmlwy" {
     key <AB05> { [ j, J ] };
     key <AB06> { [ k, K ] };
     key <AB07> { [ p, P ] };
-    key <AB08> { [ comma, less ] };
-    key <AB09> { [ period, greater ] };
-    key <AB10> { [ slash, U003F ] };
-
+    key <AB08> { [ comma, less, U2264 ] }; // ≤
+    key <AB09> { [ period, greater, U2265 ] }; // ≥
+    key <AB10> { [ slash, questionmark ] };
 };
