@@ -1,55 +1,59 @@
-import re
-# from subprocess import call
+# One first needs to copy the qgmlwy file into /usr/share/X11/xkb/symbols/
+# Tested on Ubuntu 17.10
+# WARNING: Don't blame me if this script causes any damage to your setup.
 
-_X11_PATH = "/usr/share/X11/xkb/rules/"
+def install():
+	import re
 
-for file_name in ['evdev.xml', 'base.xml']:
-    print('Opening {}...'.format(_X11_PATH+file_name))
-    with open(_X11_PATH+file_name, 'r+') as f:
-        text = f.read()
-        assert len(re.findall(r"<layoutList>", text)) == 1
-        assert len(re.findall(r"qgmlwy", text)) == 0
-        f.seek(0)
+	_X11_PATH = "/usr/share/X11/xkb/rules/"
 
-        text = re.sub(r"<layoutList>",
-"""<layoutList>
-    <layout>
-      <configItem>
-        <name>qgmlwy</name>
-        
-        <shortDescription>qgmlwy</shortDescription>
-        <description>QGMLWY (Icelandic)</description>
-        <languageList>
-          <iso639Id>ice</iso639Id>
-        </languageList>
-      </configItem>
-      <variantList>
-      </variantList>
-    </layout>""",
-        text)
+	for file_name in ['evdev.xml', 'base.xml']:
+	    print('Opening {}...'.format(_X11_PATH+file_name))
+	    with open(_X11_PATH+file_name, 'r+') as f:
+	        text = f.read()
+	        assert len(re.findall(r"<layoutList>", text)) == 1
+	        assert len(re.findall(r"qgmlwy", text)) == 0
+	        f.seek(0)
 
-        print('Writing {}...'.format(_X11_PATH+file_name))
-        f.write(text)
-        f.truncate()
-        f.close()
+	        text = re.sub(r"<layoutList>",
+	"""<layoutList>
+	    <layout>
+	      <configItem>
+	        <name>qgmlwy</name>
+	        
+	        <shortDescription>qgmlwy</shortDescription>
+	        <description>QGMLWY (Icelandic)</description>
+	        <languageList>
+	          <iso639Id>ice</iso639Id>
+	        </languageList>
+	      </configItem>
+	      <variantList>
+	      </variantList>
+	    </layout>""",
+	        text)
 
-for file_name in ['evdev.lst', 'base.lst']:
-    print('Opening {}...'.format(_X11_PATH+file_name))
-    with open(_X11_PATH+file_name, 'r+') as f:
-        text = f.read()
-        assert len(re.findall(r"! layout", text)) == 1
-        assert len(re.findall(r"qgmlwy", text)) == 0
-        f.seek(0)
+	        print('Writing {}...'.format(_X11_PATH+file_name))
+	        f.write(text)
+	        f.truncate()
+	        f.close()
 
-        text = re.sub(r"! layout",
-"""! layout
-  qgmlwy          QGMLWY (Icelandic)""",
-        text)
+	for file_name in ['evdev.lst', 'base.lst']:
+	    print('Opening {}...'.format(_X11_PATH+file_name))
+	    with open(_X11_PATH+file_name, 'r+') as f:
+	        text = f.read()
+	        assert len(re.findall(r"! layout", text)) == 1
+	        assert len(re.findall(r"qgmlwy", text)) == 0
+	        f.seek(0)
 
-        print('Writing {}...'.format(_X11_PATH+file_name))
-        f.write(text)
-        f.truncate()
-        f.close()
+	        text = re.sub(r"! layout",
+	"""! layout
+	  qgmlwy          QGMLWY (Icelandic)""",
+	        text)
 
-# call('chmod a=rwx /var/lib/xkb')
-# call('find /var/lib/xkb/ -name "*.xkm" -type f -delete')
+	        print('Writing {}...'.format(_X11_PATH+file_name))
+	        f.write(text)
+	        f.truncate()
+	        f.close()
+
+if __name__ == '__main__':
+	install()
