@@ -69,10 +69,10 @@ xkb_symbols "qgmlwy" {
     key <AC04> { [ n, N, thorn, THORN ] };
     key <AC05> { [ r, R ] };
     key <AC06> { [ i, I, U00ED, U00CD] }; // í, Í
-    key <AC07> { [ a, A, U00E1, U00C1, Left, leftarrow] }; // á, Á
-    key <AC08> { [ e, E, U00E9, U00C9, Down, downarrow] }; // é, É
-    key <AC09> { [ o, O, U00F3, U00D3, Up, uparrow] }; // ó, Ó
-    key <AC10> { [ h, H, ae, AE, Right, rightarrow] };
+    key <AC07> { [ a, A, U00E1, U00C1, Left] }; // á, Á
+    key <AC08> { [ e, E, U00E9, U00C9, Down] }; // é, É
+    key <AC09> { [ o, O, U00F3, U00D3, Up] }; // ó, Ó
+    key <AC10> { [ h, H, ae, AE, Right] };
     key <AC11> { [ apostrophe, quotedbl ] };
     // Lowest row
     key <AB01> { [ z, Z ] };
