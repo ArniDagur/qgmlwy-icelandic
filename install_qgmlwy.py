@@ -2,6 +2,24 @@
 # Tested on Ubuntu 17.10
 # WARNING: Don't blame me if this script causes any damage to your setup.
 
+_XML_INSERTION = """<layoutList>
+    <layout>
+      <configItem>
+        <name>qgmlwy</name>
+        
+        <shortDescription>qgmlwy</shortDescription>
+        <description>QGMLWY (Icelandic)</description>
+        <languageList>
+          <iso639Id>ice</iso639Id>
+        </languageList>
+      </configItem>
+      <variantList>
+      </variantList>
+    </layout>"""
+
+_LST_INSERTION = """! layout
+  qgmlwy          QGMLWY (Icelandic)"""
+
 def install():
     import re
 
@@ -14,24 +32,7 @@ def install():
             assert len(re.findall(r"<layoutList>", text)) == 1
             assert len(re.findall(r"qgmlwy", text)) == 0
             f.seek(0)
-
-            text = re.sub(r"<layoutList>",
-    """<layoutList>
-        <layout>
-          <configItem>
-            <name>qgmlwy</name>
-            
-            <shortDescription>qgmlwy</shortDescription>
-            <description>QGMLWY (Icelandic)</description>
-            <languageList>
-              <iso639Id>ice</iso639Id>
-            </languageList>
-          </configItem>
-          <variantList>
-          </variantList>
-        </layout>""",
-            text)
-
+            text = re.sub(r"<layoutList>", _XML_INSERTION, text)
             print('Writing {}...'.format(_X11_PATH+file_name))
             f.write(text)
             f.truncate()
@@ -44,12 +45,7 @@ def install():
             assert len(re.findall(r"! layout", text)) == 1
             assert len(re.findall(r"qgmlwy", text)) == 0
             f.seek(0)
-
-            text = re.sub(r"! layout",
-    """! layout
-      qgmlwy          QGMLWY (Icelandic)""",
-            text)
-
+            text = re.sub(r"! layout", _LST_INSERTION, text)
             print('Writing {}...'.format(_X11_PATH+file_name))
             f.write(text)
             f.truncate()
