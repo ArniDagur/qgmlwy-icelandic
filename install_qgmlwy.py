@@ -3,57 +3,57 @@
 # WARNING: Don't blame me if this script causes any damage to your setup.
 
 def install():
-	import re
+    import re
 
-	_X11_PATH = "/usr/share/X11/xkb/rules/"
+    _X11_PATH = "/usr/share/X11/xkb/rules/"
 
-	for file_name in ['evdev.xml', 'base.xml']:
-	    print('Opening {}...'.format(_X11_PATH+file_name))
-	    with open(_X11_PATH+file_name, 'r+') as f:
-	        text = f.read()
-	        assert len(re.findall(r"<layoutList>", text)) == 1
-	        assert len(re.findall(r"qgmlwy", text)) == 0
-	        f.seek(0)
+    for file_name in ['evdev.xml', 'base.xml']:
+        print('Opening {}...'.format(_X11_PATH+file_name))
+        with open(_X11_PATH+file_name, 'r+') as f:
+            text = f.read()
+            assert len(re.findall(r"<layoutList>", text)) == 1
+            assert len(re.findall(r"qgmlwy", text)) == 0
+            f.seek(0)
 
-	        text = re.sub(r"<layoutList>",
-	"""<layoutList>
-	    <layout>
-	      <configItem>
-	        <name>qgmlwy</name>
-	        
-	        <shortDescription>qgmlwy</shortDescription>
-	        <description>QGMLWY (Icelandic)</description>
-	        <languageList>
-	          <iso639Id>ice</iso639Id>
-	        </languageList>
-	      </configItem>
-	      <variantList>
-	      </variantList>
-	    </layout>""",
-	        text)
+            text = re.sub(r"<layoutList>",
+    """<layoutList>
+        <layout>
+          <configItem>
+            <name>qgmlwy</name>
+            
+            <shortDescription>qgmlwy</shortDescription>
+            <description>QGMLWY (Icelandic)</description>
+            <languageList>
+              <iso639Id>ice</iso639Id>
+            </languageList>
+          </configItem>
+          <variantList>
+          </variantList>
+        </layout>""",
+            text)
 
-	        print('Writing {}...'.format(_X11_PATH+file_name))
-	        f.write(text)
-	        f.truncate()
-	        f.close()
+            print('Writing {}...'.format(_X11_PATH+file_name))
+            f.write(text)
+            f.truncate()
+            f.close()
 
-	for file_name in ['evdev.lst', 'base.lst']:
-	    print('Opening {}...'.format(_X11_PATH+file_name))
-	    with open(_X11_PATH+file_name, 'r+') as f:
-	        text = f.read()
-	        assert len(re.findall(r"! layout", text)) == 1
-	        assert len(re.findall(r"qgmlwy", text)) == 0
-	        f.seek(0)
+    for file_name in ['evdev.lst', 'base.lst']:
+        print('Opening {}...'.format(_X11_PATH+file_name))
+        with open(_X11_PATH+file_name, 'r+') as f:
+            text = f.read()
+            assert len(re.findall(r"! layout", text)) == 1
+            assert len(re.findall(r"qgmlwy", text)) == 0
+            f.seek(0)
 
-	        text = re.sub(r"! layout",
-	"""! layout
-	  qgmlwy          QGMLWY (Icelandic)""",
-	        text)
+            text = re.sub(r"! layout",
+    """! layout
+      qgmlwy          QGMLWY (Icelandic)""",
+            text)
 
-	        print('Writing {}...'.format(_X11_PATH+file_name))
-	        f.write(text)
-	        f.truncate()
-	        f.close()
+            print('Writing {}...'.format(_X11_PATH+file_name))
+            f.write(text)
+            f.truncate()
+            f.close()
 
 if __name__ == '__main__':
-	install()
+    install()
