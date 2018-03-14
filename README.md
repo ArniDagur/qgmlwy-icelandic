@@ -1,5 +1,4 @@
-# qgmlwy-icelandic
-[QGMLWY keyboard layout](http://mkweb.bcgsc.ca/carpalx/) modified for use by Icelandic users.
+This is the [QGMLWY keyboard layout](http://mkweb.bcgsc.ca/carpalx/) modified for Icelandic language use.
 
 The Icelandic characters were not placed in a scientific manner, but like in the original layout, all vowels are positioned on the right half of the keyboard, and all consonants on the left.
 
