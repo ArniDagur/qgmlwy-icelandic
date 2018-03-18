@@ -2,6 +2,7 @@ This is the [QGMLWY keyboard layout](http://mkweb.bcgsc.ca/carpalx/) modified fo
 
 The Icelandic characters were not placed in a scientific manner, but like in the original layout, all vowels are positioned on the right half of the keyboard, and all consonants on the left.
 
+---
 ### For Icelandic Characters:
 | Key Combination | Character |
 | ------------- | ------------- |
@@ -14,3 +15,7 @@ The Icelandic characters were not placed in a scientific manner, but like in the
 | alt-gr + b | ö |
 | alt-gr + t | ð |
 | alt-gr + n | þ |
+
+---
+### Troubleshooting:
+**Right-alt does not produce Icelandic keys:** If you use GNOME, make sure that you have the 'compose key' disabled in Tweaks Tool -> Keyboard & Mouse.
