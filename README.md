@@ -5,7 +5,7 @@ The Icelandic characters were not placed in a scientific manner, but like in the
 ---
 ### For Icelandic Characters:
 | Key Combination | Character |
-| ------------- | ------------- |
+| --- | --- |
 | alt-gr + a | á |
 | alt-gr + e | é |
 | alt-gr + o | ó |
@@ -15,6 +15,17 @@ The Icelandic characters were not placed in a scientific manner, but like in the
 | alt-gr + b | ö |
 | alt-gr + t | ð |
 | alt-gr + n | þ |
+
+---
+### Installation:
+
+1. Clone this repository and enter it: `git clone https://github.com/ArniDagur/qgmlwy-icelandic.git`
+
+2. Enter it: `cd qgmlwy-icelandic`
+
+3. Copy 'qgmlwy' file to X11 symbols directory: `sudo cp qgmlwy /usr/share/X11/xkb/symbols/`
+
+4. Run: `sudo python install_qgmlwy.py`
 
 ---
 ### Troubleshooting:
