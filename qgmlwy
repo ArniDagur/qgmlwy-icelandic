@@ -55,9 +55,9 @@ xkb_symbols "qgmlwy" {
     key <AD04> { [ l, L] };
     key <AD05> { [ w, W ] };
     key <AD06> { [ y, Y, U00FD, U00DD] }; // ý, Ý
-    key <AD07> { [ f, F ] };
-    key <AD08> { [ u, U, U00FA, U00DA ] }; // ú, Ú
-    key <AD09> { [ b, B, U00F6, U00D6 ] }; // ö, Ö
+    key <AD07> { [ f, F, NoSymbol, NoSymbol, Home ] };
+    key <AD08> { [ u, U, U00FA, U00DA, Up ] }; // ú, Ú
+    key <AD09> { [ b, B, U00F6, U00D6, End ] }; // ö, Ö
     key <AD10> { [ semicolon, colon ] };
     key <AD11> { [ bracketleft, braceleft ] };
     key <AD12> { [ bracketright, braceright ] };
@@ -68,11 +68,11 @@ xkb_symbols "qgmlwy" {
     key <AC03> { [ t, T, eth, ETH ] };
     key <AC04> { [ n, N, thorn, THORN ] };
     key <AC05> { [ r, R ] };
-    key <AC06> { [ i, I, U00ED, U00CD] }; // í, Í
-    key <AC07> { [ a, A, U00E1, U00C1, Left] }; // á, Á
-    key <AC08> { [ e, E, U00E9, U00C9, Down] }; // é, É
-    key <AC09> { [ o, O, U00F3, U00D3, Up] }; // ó, Ó
-    key <AC10> { [ h, H, ae, AE, Right] };
+    key <AC06> { [ i, I, U00ED, U00CD ] }; // í, Í
+    key <AC07> { [ a, A, U00E1, U00C1, Left ] }; // á, Á
+    key <AC08> { [ e, E, U00E9, U00C9, Down ] }; // é, É
+    key <AC09> { [ o, O, U00F3, U00D3, Right ] }; // ó, Ó
+    key <AC10> { [ h, H, ae, AE ] };
     key <AC11> { [ apostrophe, quotedbl ] };
     // Lowest row
     key <AB01> { [ z, Z ] };
