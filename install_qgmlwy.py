@@ -25,7 +25,7 @@ def install():
     import os
 
     _X11_RULES_PATH = '/usr/share/X11/xkb/rules/'
-    _X11_SYMBOLS_PATH = '/usr/share/X11/xkb/rules/'
+    _X11_SYMBOLS_PATH = '/usr/share/X11/xkb/symbols/'
 
     if not os.path.isfile(_X11_SYMBOLS_PATH+'qgmlwy'):
         print('Error: Keyboard file not found\nOne first needs to copy the qgmlwy file into /usr/share/X11/xkb/symbols/ before running this script.')
