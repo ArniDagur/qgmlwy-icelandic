@@ -1,0 +1,79 @@
+# vim: noet:ts=4:sts=4:sw=4
+# carpalx.map
+# Layout created by Martin Krzywinski, http://mkweb.bcgsc.ca/carpalx/
+# This keymap file created by Perry Thompson
+# Modified by Árni Dagur
+# keymaps 0-2,4-6,8-9,12
+alt_is_meta
+include "linux-with-alt-and-altgr.inc"
+strings as usual
+keycode   1 = Escape
+keycode   2 = equal            plus
+keycode   3 = one              exclam           #interrobang
+keycode   4 = two              at               at               nul              nul
+keycode   5 = three            numbersign       VoidSymbol       section
+        control keycode   5 = Escape
+keycode   6 = four             dollar           euro             currency
+keycode   7 = five             percent
+        control keycode   7 = Control_bracketright
+keycode   8 = six              asciicircum
+        control keycode   8 = Control_asciicircum
+keycode   9 = seven            ampersand        braceleft        Control_underscore
+keycode  10 = eight            asterisk         bracketleft      Delete
+keycode  11 = nine             parenleft        bracketright
+keycode  12 = zero             parenright       braceright
+keycode  13 = minus            underscore       emdash           endash            Control_underscore
+keycode  14 = Delete
+keycode  15 = Tab
+        shift   keycode  15 = Meta_Tab
+keycode  16 = q                Q
+keycode  17 = g                G
+keycode  18 = m                M
+keycode  19 = l                L
+keycode  20 = w                W
+keycode  21 = y                Y                yacute           Yacute
+keycode  22 = f                F
+keycode  23 = u                U                uacute           Uacute
+keycode  24 = b                B                odiaeresis       Odiaeresis
+keycode  25 = semicolon        colon
+keycode  26 = bracketleft      braceleft
+        control keycode  26 = Escape
+keycode  27 = bracketright     braceright       asciitilde       Control_bracketright
+keycode  28 = Return
+        alt     keycode  28 = Meta_Control_m
+keycode  29 = Control
+keycode  30 = d                D
+keycode  31 = s                S                ssharp
+keycode  32 = t                T                eth              ETH
+keycode  33 = n                N                thorn            THORN
+keycode  34 = r                R
+keycode  35 = i                I                iacute           Iacute
+keycode  36 = a                A                aacute           Aacute
+keycode  37 = e                E                eacute           Eacute
+keycode  38 = o                O                oacute           Oacute
+keycode  39 = h                H                ae               AE
+keycode  40 = apostrophe       quotedbl
+        control keycode  40 = Control_g
+keycode  41 = grave            asciitilde
+        control keycode  41 = nul
+keycode  42 = Shift
+keycode  43 = backslash        bar
+        control keycode  43 = Control_backslash
+keycode  44 = z                Z
+keycode  45 = x                X
+keycode  46 = c                C
+keycode  47 = v                V
+keycode  48 = j                J
+keycode  49 = k                K
+keycode  50 = p                P
+keycode  51 = comma            less
+keycode  52 = period           greater
+keycode  53 = slash            question
+        control keycode  53 = Delete
+keycode  54 = Shift
+keycode  56 = Alt
+keycode  57 = space
+        control keycode  57 = nul
+keycode  58 = VoidSymbol
+keycode  86 = less             greater          bar
+keycode  97 = Control
