@@ -84,5 +84,5 @@ xkb_symbols "qgmlwy" {
     key <AB07> { [ p, P ] };
     key <AB08> { [ comma, less, U2264 ] }; // ≤
     key <AB09> { [ period, greater, U2265 ] }; // ≥
-    key <AB10> { [ slash, questionmark ] };
+    key <AB10> { [ slash, question ] };
 };
