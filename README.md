@@ -15,6 +15,7 @@ The Icelandic characters were not placed in a scientific manner, but like in the
 | alt-gr + b | ö |
 | alt-gr + t | ð |
 | alt-gr + n | þ |
+| alt-gr + i | í |
 
 ---
 ### Installation:
