@@ -55,7 +55,7 @@ xkb_symbols "qgmlwy" {
     key <AD04> { [ l, L] };
     key <AD05> { [ w, W ] };
     key <AD06> { [ y, Y, U00FD, U00DD] }; // ý, Ý
-    key <AD07> { [ f, F, NoSymbol, NoSymbol, Home ] };
+    key <AD07> { [ f, F, U00FC, U00DC, Home ] }; // ü, Ü
     key <AD08> { [ u, U, U00FA, U00DA, Up ] }; // ú, Ú
     key <AD09> { [ b, B, U00F6, U00D6, End ] }; // ö, Ö
     key <AD10> { [ semicolon, colon ] };
@@ -81,8 +81,8 @@ xkb_symbols "qgmlwy" {
     key <AB04> { [ v, V ] };
     key <AB05> { [ j, J ] };
     key <AB06> { [ k, K ] };
-    key <AB07> { [ p, P ] };
-    key <AB08> { [ comma, less, U2264 ] }; // ≤
-    key <AB09> { [ period, greater, U2265 ] }; // ≥
+    key <AB07> { [ p, P, U00E5, U212B ] }; // å, Å
+    key <AB08> { [ comma, less, U00E4, U00C4 ] }; // ä, Ä
+    key <AB09> { [ period, greater, U00F8, U00D8 ] }; // ø, Ø
     key <AB10> { [ slash, question ] };
 };
