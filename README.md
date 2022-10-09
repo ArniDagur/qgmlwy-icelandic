@@ -20,13 +20,11 @@ The Icelandic characters were not placed in a scientific manner, but like in the
 ---
 ### Installation:
 
-1. Clone this repository and enter it: `git clone https://github.com/ArniDagur/qgmlwy-icelandic.git`
+1. Clone this repository: `git clone https://github.com/ArniDagur/qgmlwy-icelandic.git`
 
 2. Enter it: `cd qgmlwy-icelandic`
 
-3. Copy 'qgmlwy' file to X11 symbols directory: `sudo cp qgmlwy /usr/share/X11/xkb/symbols/`
-
-4. Run: `sudo python install_qgmlwy.py`
+3. Run: `sudo python install_qgmlwy.py`
 
 ---
 ### Troubleshooting:
