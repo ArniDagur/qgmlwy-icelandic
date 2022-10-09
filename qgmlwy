@@ -31,7 +31,6 @@ xkb_symbols "qgmlwy" {
     key <CAPS> { // implemented here as caps lock is not a default level 5 option
         type[Group1]="ONE_LEVEL",
         symbols[Group1] = [ ISO_Level5_Shift ] };
-    include "level5(modifier_mapping)"
 
     key.type[Group1] = "EIGHT_LEVEL"; // makes keys capable of using up to eight levels
     // Number row
