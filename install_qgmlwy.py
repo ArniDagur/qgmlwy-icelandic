@@ -4,10 +4,14 @@
 
 import urllib.request
 import re
+import os.path
+import gzip
 
 X11_RULES_PATH = "/usr/share/X11/xkb/rules/"
 X11_SYMBOLS_PATH = "/usr/share/X11/xkb/symbols/"
-LAYOUT_PATH = X11_SYMBOLS_PATH + "qgmlwy"
+X11_LAYOUT_PATH = X11_SYMBOLS_PATH + "qgmlwy"
+CONSOLE_LAYOUT_DIR_PATH = "/usr/share/keymaps/"
+CONSOLE_LAYOUT_PATH = CONSOLE_LAYOUT_DIR_PATH + "qgmlwy.map.gz"
 XML_INSERTION = """<layoutList>
     <layout>
       <configItem>
@@ -24,30 +28,47 @@ XML_INSERTION = """<layoutList>
     </layout>"""
 
 
-def download_newest_layout():
-    url = "https://raw.githubusercontent.com/ArniDagur/qgmlwy-icelandic/master/qgmlwy"
+def download_file(file_name):
+    url = f"https://raw.githubusercontent.com/ArniDagur/qgmlwy-icelandic/master/{file_name}"
     with urllib.request.urlopen(url) as f:
         return f.read().decode("utf-8")
 
 
-def get_current_layout():
+def read_path(path):
     try:
-        with open(LAYOUT_PATH, "r", encoding="utf-8") as f:
-            return f.read()
+        open_func = gzip.open if path.endswith(".gz") else open
+        with open_func(path, "rb") as f:
+            return f.read().decode("utf-8")
     except FileNotFoundError:
         return None
 
 
-def ensure_layout_up_to_date():
-    newest_layout = download_newest_layout()
-    current_layout = get_current_layout()
+def ensure_x11_layout_up_to_date():
+    newest_layout = download_file("qgmlwy")
+    current_layout = read_path(X11_LAYOUT_PATH)
     if newest_layout == current_layout:
-        print(f"Layout {LAYOUT_PATH} is up to date")
+        print(f"Layout {X11_LAYOUT_PATH} is up to date")
         return
 
-    print(f"Writing layout to {LAYOUT_PATH} ...")
-    with open(LAYOUT_PATH, "w", encoding="utf-8") as f:
+    print(f"Writing layout to {X11_LAYOUT_PATH} ...")
+    with open(X11_LAYOUT_PATH, "w", encoding="utf-8") as f:
         f.write(newest_layout)
+
+
+def ensure_console_layout_up_to_date():
+    if not os.path.isdir(CONSOLE_LAYOUT_DIR_PATH):
+        print("Directory not found:", CONSOLE_LAYOUT_DIR_PATH)
+        return
+
+    newest_layout = download_file("qgmlwy.map")
+    current_layout = read_path(CONSOLE_LAYOUT_PATH)
+    if newest_layout == current_layout:
+        print(f"Console layout {CONSOLE_LAYOUT_PATH} is up to date")
+        return
+
+    print(f"Writing console layout to {CONSOLE_LAYOUT_PATH} ...")
+    with gzip.open(CONSOLE_LAYOUT_PATH, "wb") as f:
+        f.write(newest_layout.encode("utf-8"))
 
 
 def patch_xml_file(xml_path):
@@ -83,7 +104,8 @@ def patch_lst_file(lst_path):
 
 
 def main():
-    ensure_layout_up_to_date()
+    ensure_x11_layout_up_to_date()
+    ensure_console_layout_up_to_date()
 
     for file_name in ["evdev.xml", "base.xml"]:
         try:
