@@ -29,3 +29,14 @@ The Icelandic characters were not placed in a scientific manner, but like in the
 ---
 ### Troubleshooting:
 **Right-alt does not produce Icelandic keys:** If you use GNOME, make sure that you have the 'compose key' disabled in Tweaks Tool -> Keyboard & Mouse.
+
+### Making MacOS keyboard usable
+
+Set the following settings:
+
+```
+echo "1" | sudo tee /sys/module/hid_apple/parameters/swap_opt_cmd
+echo "1" | sudo tee /sys/module/hid_apple/parameters/swap_fn_leftctrl
+```
+
+These changes can be made permanent. See https://wiki.archlinux.org/title/Apple_Keyboard
